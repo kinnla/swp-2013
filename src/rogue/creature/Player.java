@@ -37,6 +37,7 @@ public class Player extends Creature implements Camera
                     Direction dir = Direction.keyToDir(key);
                     if(dir != null)
                         move(dir);
+                    System.out.println("Softwarepraktikum");
                     break;
             }
         }

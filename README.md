@@ -1,7 +1,12 @@
-swp-2013
-========
+Softwarepraktikum 2013, Institut für Informatik, Freie Universität Berlin
 
-Rogue-like game. Heute nur ein Prototyp, morgen schon ein Drachentöter.
+Die Dateien in diesem Repository sind aus dem Projekt "jaderogue" von Jeff Lund übernommen:
+https://code.google.com/p/jaderogue/
+und werden von den Studierenden des Softwarepraktikums zu Roguelike Games weiterentwickelt.
 
-Kann mehr, als man so denkt...
-Rogue-like game, written in Java. Heute nur ein Prototyp, morgen schon ein Drachentöter.
+Die Repositories der Projekte liegen hier:
+* Der Pazifist https://github.com/luetge/der-pazifist
+* Grey Zone
+* GTR https://github.com/maxstauss/gtr
+* The Adventure of Umalu https://github.com/26thmeusoc/adventure-of-umalu
+* The final exam https://github.com/swp-sebastian/zombiefu

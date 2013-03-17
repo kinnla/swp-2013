@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="swp-2013" default="all" basedir=".">
+
+	<description>
+		build jar file for applet
+    </description>
+
+	<!--############# properties #############-->
+
+	<!-- directories -->
+	<property name="src" value="src" description="directory containing java source files" />
+
+	<!-- data subdirectories to create jar files -->
+	<!-- note: the classes directory is a temporary one -->
+	<property name="classes" value="classes" description=" containing the classes" />
+	<property name="build" value="build" description=" destination" />
+
+	<!--############# targets ##############-->
+
+	<target name="clean" description="clean up build folder first">
+		<echo message="Deleting temporary files" />
+		<delete includeEmptyDirs="true" failonerror="false">
+			<fileset dir="${build}" />
+		</delete>
+		<mkdir dir="${build}" />
+	</target>
+
+	<target name="all" depends="clean" description="create jar files">
+		<!-- compile all java sources -->
+		<mkdir dir="${classes}" />
+		<javac srcdir="${src}" excludes="test/**" destdir="${classes}" source="1.7" debug="true" />
+		<!-- create timestamp and buildnumber file -->
+		<buildnumber />
+		<tstamp>
+			<format property="build.time" pattern="MM/dd/yyyy hh:mm aa" />
+		</tstamp>
+		<!-- create jar file for classes indexing the other jars -->
+		<jar destfile="${build}/${classes}.jar" basedir="${classes}" />
+		<!-- delete temporary files -->
+		<delete verbose="true" file="tempstore" />
+		<delete includeEmptyDirs="true">
+			<fileset dir="${classes}" />
+		</delete>
+	</target>
+
+</project>

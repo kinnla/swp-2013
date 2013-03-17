@@ -103,6 +103,10 @@ public class TermPanel extends Terminal
         screen.setBuffer(getBuffer());
         screen.repaint();
     }
+    
+    public void keyPressed(KeyEvent e) {
+    	screen.keyPressed(e);
+    }
 
     protected static class Screen extends JPanel implements KeyListener
     {
@@ -124,6 +128,7 @@ public class TermPanel extends Terminal
             screenBuffer = new HashMap<Coordinate, ColoredChar>();
 
             addKeyListener(this);
+            System.out.println("added key listener");
             this.tileWidth = tileWidth;
             this.tileHeight = tileHeight;
             setPreferredSize(new Dimension(columns * tileWidth, rows * tileHeight));
@@ -172,6 +177,7 @@ public class TermPanel extends Terminal
         @Override
         public void keyPressed(KeyEvent event)
         {
+        	System.out.println(event.getKeyChar());
             inputBuffer.offer(event.getKeyChar());
         }
 

@@ -42,7 +42,6 @@ public class Rogue extends JApplet implements KeyEventDispatcher {
 					term.bufferChar(x + 11, y, world.look(x, y));
 			term.bufferCameras();
 			term.refreshScreen();
-
 			world.tick();
 		}
 
@@ -84,12 +83,6 @@ public class Rogue extends JApplet implements KeyEventDispatcher {
 					term.bufferCameras();
 					term.refreshScreen();
 					world.tick();
-//					try {
-//						Thread.sleep(500);
-//					} catch (InterruptedException e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-//					}
 				}
 			}
 		});
@@ -104,15 +97,8 @@ public class Rogue extends JApplet implements KeyEventDispatcher {
 
 	@Override
 	public boolean dispatchKeyEvent(KeyEvent e) {
-		final KeyEvent ev = e;
-//		SwingUtilities.invokeLater(new Runnable() {
-//
-//			@Override
-//			public void run() {
-//				term.keyPressed(ev);
-//			}
-//		});
-		term.keyPressed(ev);
+		if (e.getID() == KeyEvent.KEY_TYPED)
+			term.keyPressed(e);
 		return true;
 	}
 
